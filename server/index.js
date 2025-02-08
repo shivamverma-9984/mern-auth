@@ -64,7 +64,7 @@ app.post('/login', async (req, res) => {
 
 app.use(express.static(path.join(_dirname,'dist')))
 app.get('*',(req,res)=>{
-  res.sendFile(path.join(_dirname,'dist','index.html'))
+  res.sendFile(path.join(_dirname,'../client/dist','index.html'))
 })
 
 // Start the server
