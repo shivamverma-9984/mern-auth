@@ -1,9 +1,9 @@
 import React from 'react';
-import Login from './Pages/Login';
-import Register from './Pages/Register';
 import Dashboard from './pages/Dashboard';
 import { BrowserRouter,Route,Routes,Navigate } from 'react-router';
 import { Toaster} from 'sonner';
+import Login from './pages/Login';
+import Register from './pages/Register';
 
 const App = () => {
   const isAuthenticated = !!localStorage.getItem('token'); // Check if token exists
