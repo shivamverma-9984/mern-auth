@@ -3,14 +3,16 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const cors = require('cors');
+const path=require('path');
 require('dotenv').config();
 
 const app = express();
 app.use(express.json());
+const _dirname=path.resolve()
 app.use(cors({
-    origin: "http://localhost:5173",  // Your React frontend's Vite dev server
-    methods: ["GET", "POST"],
-    credentials: true
+  origin: "http://localhost:5173",
+  methods: ["POST", "GET"],
+  credentials: true
 }));
 
 // MongoDB connection
@@ -59,6 +61,11 @@ app.post('/login', async (req, res) => {
     res.status(500).json({ error: 'Error logging in' });
   }
 });
+
+app.use(express.static(path.join(_dirname,'dist')))
+app.get('*',(req,res)=>{
+  res.sendFile(path.join(_dirname,'dist','index.html'))
+})
 
 // Start the server
 const PORT = process.env.PORT || 5000;

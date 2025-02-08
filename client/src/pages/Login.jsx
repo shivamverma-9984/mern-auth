@@ -18,6 +18,8 @@ const Login = () => {
 //     }
 //   }, [])
 
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -25,7 +27,7 @@ const Login = () => {
       toast.success(res.data.message || 'Login successful');
       localStorage.setItem('token', res.data.token);
       localStorage.setItem('username', res.data.username); // Store username
-     navigate('/dashboard'); // Redirect to dashboard after login
+      navigate('/dashboard'); // Redirect to dashboard after login
     } catch (err) {
       alert(err.response?.data?.error || 'Something went wrong');
     }
