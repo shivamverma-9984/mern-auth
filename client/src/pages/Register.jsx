@@ -11,7 +11,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:5000/register', { username, password });     
+      const res = await axios.post('https://mern-auth-5xpl.onrender.com/register', { username, password });     
       toast.success(res.data.message || 'User registered successfully');
       navigate('/login'); // Redirect to login after registration
     } catch (err) {

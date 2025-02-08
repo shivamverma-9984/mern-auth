@@ -23,7 +23,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:5000/login', { username, password });
+      const res = await axios.post('https://mern-auth-5xpl.onrender.com/login', { username, password });
       toast.success(res.data.message || 'Login successful');
       localStorage.setItem('token', res.data.token);
       localStorage.setItem('username', res.data.username); // Store username
