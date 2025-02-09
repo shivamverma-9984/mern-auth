@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { toast } from 'sonner';
 
 const Login = () => {
@@ -11,12 +11,12 @@ const Login = () => {
 //   const [registerUser,setregistUser]=useState({username:"",password:""})
 
 
-//   useEffect(() => {
-//     const token = localStorage.getItem('token');
-//     if (token) {
-//       navigate('/dashboard');
-//     }
-//   }, [])
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      navigate('/dashboard');
+    }
+  }, [])
 
 
 
@@ -32,6 +32,9 @@ const Login = () => {
       alert(err.response?.data?.error || 'Something went wrong');
     }
   };
+
+
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="bg-white p-8 rounded-lg shadow-md w-96">
@@ -68,9 +71,9 @@ const Login = () => {
         </form>
         <p className="mt-4 text-center">
           Don't have an account?{' '}
-          <a href="/register" className="text-blue-500 hover:underline">
+          <Link to="/register" className="text-blue-500 hover:underline">
             Register here
-          </a>
+          </Link>
         </p>
       </div>
     </div>
